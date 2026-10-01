@@ -4,127 +4,466 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="1XQWGPKp2y3y051kzXe_UIb2JUrMr-S6cja4IIeEoCA" />
-    <title>My Simple Shop</title>
+    <title>Jason Restaurant | Vietnamese Pho &amp; Noodle House in Mountain View, CA</title>
+    <meta name="description" content="Jason Restaurant is a family-owned Vietnamese pho and noodle house in Mountain View, CA. 12-hour beef bone broth, locally sourced herbs, eco-friendly zero-waste takeout, and warm, welcoming hospitality since 2012.">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Jason Restaurant",
+        "servesCuisine": ["Vietnamese", "Pho", "Noodles"],
+        "priceRange": "$$",
+        "telephone": "+1-650-880-5876",
+        "logo": "images/logo.svg",
+        "image": "images/hero-pho.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mountain View",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+        }
+    }
+    </script>
     <style>
+        /* Brand palette: jade, saffron, chili red, cream, walnut. */
+        :root {
+            --jade: #1F5E4A;
+            --jade-dark: #164536;
+            --saffron: #E9A23B;
+            --chili: #C8412B;
+            --cream: #FFF4E0;
+            --walnut: #3B2A1E;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            margin: 0;
+            font-family: 'Work Sans', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.55;
+            background-color: var(--cream);
+            color: var(--walnut);
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-            text-align: center;
-            margin-bottom: 20px;
+        h1, h2, h3 {
+            font-family: 'Fraunces', Georgia, serif;
+            line-height: 1.15;
+            margin: 0 0 12px;
         }
-        nav ul {
+        a { color: inherit; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header: logo on a jade bar so the logo crop carries the brand colors. */
+        .site-header {
+            background-color: var(--jade);
+            color: var(--cream);
+        }
+        .site-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+        .site-header .logo img {
+            display: block;
+            height: 96px;
+            width: auto;
+        }
+        .site-header nav ul {
             list-style: none;
+            margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 22px;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #fff;
+        .site-header nav a {
             text-decoration: none;
+            font-weight: 600;
         }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-        }
-        .product-card h3 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.2em;
-        }
-        .product-card .price {
-            color: green;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .product-card button {
-            background-color: #5cb85c;
-            color: #fff;
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
             border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
         }
-        .product-card button:hover {
-            background-color: #4cae4c;
+        .btn-saffron { background-color: var(--saffron); color: var(--walnut); }
+        .btn-chili { background-color: var(--chili); color: var(--cream); }
+        .btn-outline { border: 2px solid var(--jade); color: var(--jade); }
+
+        /* Hero. */
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
         }
-        footer {
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--chili);
+            margin: 0 0 8px;
+        }
+        .hero h1 { font-size: 2.6em; color: var(--jade); }
+        .hero p { margin: 0 0 18px; }
+        .hero .actions { display: flex; gap: 12px; }
+        .hero img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+            display: block;
+        }
+
+        /* Sections. */
+        section { padding: 36px 0; }
+        .section-title { font-size: 1.9em; color: var(--jade); }
+        .section-intro { margin: 0 0 22px; max-width: 640px; }
+
+        /* Signature dishes. */
+        .dishes { background-color: #FBE7C6; }
+        .dish-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .dish-card {
+            background-color: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--saffron);
+        }
+        .dish-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .dish-card .body { padding: 14px 16px 18px; }
+        .dish-card h3 { font-size: 1.25em; margin-bottom: 6px; }
+        .dish-card p { margin: 0 0 10px; font-size: 0.92em; }
+        .dish-card .price {
+            color: var(--chili);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Menu. */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .menu-col h3 {
+            font-size: 1.2em;
+            color: var(--chili);
+            border-bottom: 2px solid var(--saffron);
+            padding-bottom: 6px;
+        }
+        .menu-col ul { list-style: none; margin: 0; padding: 0; }
+        .menu-col li { margin-bottom: 10px; }
+        .menu-col .item {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+        .menu-col .desc {
+            display: block;
+            font-size: 0.85em;
+            color: #6B5646;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 0 6px;
+            border-radius: 6px;
+            background-color: var(--jade);
+            color: var(--cream);
+        }
+        .tag-hot { background-color: var(--chili); }
+
+        /* Reviews. */
+        .reviews { padding: 24px 0; background-color: var(--saffron); }
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .reviews figure { margin: 0; }
+        .reviews blockquote {
+            margin: 0 0 6px;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.05em;
+            color: var(--walnut);
+        }
+        .reviews figcaption { font-size: 0.85em; font-weight: 600; color: var(--jade-dark); }
+
+        /* Story and values. */
+        .story { background-color: var(--jade); color: var(--cream); }
+        .story .section-title { color: var(--saffron); }
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .story p { margin: 0 0 12px; }
+        .values-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .values-list li {
+            background-color: var(--jade-dark);
+            border-left: 5px solid var(--saffron);
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+        .values-list strong {
+            display: block;
+            color: var(--saffron);
+            font-family: 'Fraunces', Georgia, serif;
+        }
+        .values-list span { font-size: 0.88em; }
+
+        /* Visit. */
+        .visit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .visit-grid h3 { font-size: 1.2em; color: var(--chili); }
+        .visit-grid p { margin: 0 0 6px; }
+        .hours { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+        .hours td { padding: 2px 0; }
+        .hours td:last-child { text-align: right; }
+
+        /* Footer. */
+        .site-footer {
+            background-color: var(--walnut);
+            color: var(--cream);
             text-align: center;
-            margin-top: 30px;
-            padding: 1em 0;
-            background-color: #333;
-            color: #fff;
+            padding: 18px 0;
             font-size: 0.9em;
         }
-        footer p {
-            margin: 5px 0;
-        }
+        .site-footer p { margin: 4px 0; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Jason Restaurant</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="#top">
+                <img src="images/logo.svg" alt="Jason Restaurant - Vietnamese Pho &amp; Noodle House" width="315" height="96">
+            </a>
+            <nav aria-label="Main">
+                <ul>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#values">Our Values</a></li>
+                    <li><a href="#visit">Visit Us</a></li>
+                    <li><a class="btn btn-saffron" href="#visit">Order Pickup</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="product-grid">
-        <div class="product-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjisG6R8DLkhsGlkzPOeIsLhbOMzjMm1dr-RDfJ79W_FItzK_1AZIS_IY&s=10" alt="Product 1" width="200">
-            <h3>Pho</h3>
-            <p class="price">$19.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://www.cookwithkushi.com/wp-content/uploads/2016/07/best_white_sauce_pasta_bechamel_sauce-500x500.jpg" alt="Product 2" width="200">
-            <h3>Pasta</h3>
-            <p class="price">$29.50</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product-card">
-            <img src="https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2017/08/Bun-Bo-Hue-46.jpg?resize=1000%2C562" alt="Product 3" width="200">
-            <h3>Bun Bo Hue</h3>
-            <p class="price">$19.75</p>
-            <button>Add to Cart</button>
-        </div>
+    <main id="top">
+        <section class="hero">
+            <div class="container">
+                <div>
+                    <p class="eyebrow">Vietnamese Pho &amp; Noodle House &middot; Mountain View, CA</p>
+                    <h1>Slow-simmered pho, made by our family for yours.</h1>
+                    <p>
+                        Every morning before sunrise, Mom lights the stove and our beef bone broth begins its
+                        12-hour simmer with charred ginger, star anise and cinnamon. Pull up a chair, grab some
+                        chopsticks, and slurp away. You're family here.
+                    </p>
+                    <div class="actions">
+                        <a class="btn btn-chili" href="#menu">See Our Menu</a>
+                        <a class="btn btn-outline" href="#visit">Find Us</a>
+                    </div>
+                </div>
+                <img src="images/hero-pho.jpg" alt="A steaming bowl of beef pho with fresh Thai basil, lime and chilies" width="960" height="536">
+            </div>
         </section>
 
-    <footer id="contact">
-        <h2>Contact Us</h2>
-        <p>Phone: +1 (650) 880-5876</p>
-        <p>Email: <a href="mailto:jttnguyen@google.com">jttnguyen@google.com</a></p>
-        <p>&copy; 2025 My Simple Shop</p>
+        <section class="dishes" id="signature">
+            <div class="container">
+                <h2 class="section-title">Our Signature Bowls</h2>
+                <p class="section-intro">
+                    Three dishes our regulars can't stop talking about. Made from scratch, every single day.
+                </p>
+                <div class="dish-grid">
+                    <article class="dish-card">
+                        <img src="images/pho-tai.jpg" alt="Pho tai with rare beef and fresh herbs" width="640" height="478">
+                        <div class="body">
+                            <h3>Pho Tai</h3>
+                            <p>Our classic: 12-hour beef bone broth, silky rice noodles and thin-sliced rare beef.</p>
+                            <p class="price">$16.50</p>
+                            <a class="btn btn-saffron" href="#visit">Order Now</a>
+                        </div>
+                    </article>
+                    <article class="dish-card">
+                        <img src="images/bun-bo-hue.jpg" alt="Spicy Bun Bo Hue lemongrass beef noodle soup" width="640" height="478">
+                        <div class="body">
+                            <h3>Bun Bo Hue</h3>
+                            <p>Grandma's spicy lemongrass broth from Hue, with tender beef shank and thick round noodles.</p>
+                            <p class="price">$17.75</p>
+                            <a class="btn btn-saffron" href="#visit">Order Now</a>
+                        </div>
+                    </article>
+                    <article class="dish-card">
+                        <img src="images/garlic-noodles.jpg" alt="Garlic butter noodles with grilled lemongrass shrimp" width="640" height="478">
+                        <div class="body">
+                            <h3>Garlic Noodles &amp; Shrimp</h3>
+                            <p>Buttery garlic egg noodles, crispy fried garlic and grilled lemongrass shrimp.</p>
+                            <p class="price">$18.95</p>
+                            <a class="btn btn-saffron" href="#visit">Order Now</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <div class="container">
+                <h2 class="section-title">The Menu</h2>
+                <p class="section-intro">
+                    Simple, honest Vietnamese comfort food. Ask us about vegan broth and gluten-free swaps,
+                    we're always happy to help.
+                </p>
+                <div class="menu-grid">
+                    <div class="menu-col">
+                        <h3>Pho</h3>
+                        <ul>
+                            <li><span class="item"><span>Pho Tai</span><span>$16.50</span></span><span class="desc">Rare beef, onion, cilantro <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Pho Dac Biet</span><span>$18.50</span></span><span class="desc">The works: brisket, tendon, meatballs <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Pho Ga</span><span>$15.50</span></span><span class="desc">Free-range chicken, ginger broth <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Pho Chay</span><span>$15.00</span></span><span class="desc">Vegan mushroom broth, tofu, greens <span class="tag">Vegan</span> <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Pho Bo Vien</span><span>$15.75</span></span><span class="desc">Hand-rolled beef meatballs <span class="tag">GF</span></span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-col">
+                        <h3>Noodles &amp; Rice</h3>
+                        <ul>
+                            <li><span class="item"><span>Bun Bo Hue</span><span>$17.75</span></span><span class="desc">Spicy lemongrass beef noodle soup <span class="tag tag-hot">Spicy</span></span></li>
+                            <li><span class="item"><span>Garlic Noodles &amp; Shrimp</span><span>$18.95</span></span><span class="desc">Butter, fried garlic, lemongrass shrimp <span class="tag">Fan Favorite</span></span></li>
+                            <li><span class="item"><span>Bun Thit Nuong</span><span>$16.25</span></span><span class="desc">Grilled pork, vermicelli, herbs <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Com Tam</span><span>$17.00</span></span><span class="desc">Broken rice, pork chop, fried egg <span class="tag">GF</span></span></li>
+                            <li><span class="item"><span>Banh Mi Bowl</span><span>$14.50</span></span><span class="desc">Pickled veggies, pate, jalapeno <span class="tag tag-hot">Spicy</span></span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-col">
+                        <h3>Starters &amp; Drinks</h3>
+                        <ul>
+                            <li><span class="item"><span>Fresh Spring Rolls</span><span>$8.50</span></span><span class="desc">Shrimp, herbs, peanut sauce</span></li>
+                            <li><span class="item"><span>Crispy Imperial Rolls</span><span>$9.00</span></span><span class="desc">Pork, taro, lettuce wraps</span></li>
+                            <li><span class="item"><span>Lemongrass Wings</span><span>$11.00</span></span><span class="desc">Fish sauce caramel glaze</span></li>
+                            <li><span class="item"><span>Ca Phe Sua Da</span><span>$5.50</span></span><span class="desc">Vietnamese iced coffee</span></li>
+                            <li><span class="item"><span>Fresh Coconut</span><span>$6.00</span></span><span class="desc">Served in the shell</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reviews" aria-label="What our neighbors say">
+            <div class="container review-grid">
+                <figure>
+                    <blockquote>&ldquo;The broth tastes like it's been loved all day. Because it has.&rdquo;</blockquote>
+                    <figcaption>Linh T. &middot; regular since 2014</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>&ldquo;Warm, funny, generous people. They remember my order and my kids' names.&rdquo;</blockquote>
+                    <figcaption>Marcus R. &middot; Mountain View neighbor</figcaption>
+                </figure>
+                <figure>
+                    <blockquote>&ldquo;Best bun bo hue in the Bay. Bring your own bowl and they knock a dollar off!&rdquo;</blockquote>
+                    <figcaption>Priya S. &middot; lunch regular</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="story" id="story">
+            <div class="container story-grid">
+                <div>
+                    <h2 class="section-title">Our Story</h2>
+                    <p>
+                        Jason Restaurant started in 2012 as a tiny six-table noodle shop run by the Nguyen family,
+                        newly arrived from Hue, Vietnam. We cooked the food we grew up on, and our neighbors kept
+                        coming back for seconds.
+                    </p>
+                    <p>
+                        Today we're still a family-owned, family-operated kitchen. Mom still tastes every pot of
+                        broth, Dad still hand-rolls the meatballs, and the kids run the front of the house. We
+                        believe great food is about patience, generosity and a little bit of fun.
+                    </p>
+                    <p>
+                        Come hungry, leave happy, and tell us how your day went. We genuinely want to know.
+                    </p>
+                </div>
+                <div id="values">
+                    <h2 class="section-title">What We Stand For</h2>
+                    <ul class="values-list">
+                        <li><strong>Family-Owned &amp; Operated</strong><span>Three generations, one kitchen, since 2012.</span></li>
+                        <li><strong>Immigrant-Owned</strong><span>Proudly sharing the flavors of Hue, Vietnam.</span></li>
+                        <li><strong>Locally Sourced</strong><span>Herbs and greens from Bay Area family farms.</span></li>
+                        <li><strong>Eco-Friendly &amp; Zero Waste</strong><span>Compostable takeout and bring-your-own-bowl discounts.</span></li>
+                        <li><strong>Made From Scratch</strong><span>No shortcuts, no MSG, broth simmered 12 hours daily.</span></li>
+                        <li><strong>Community First</strong><span>We donate a bowl to a local food bank for every 10 sold.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="visit" id="visit">
+            <div class="container">
+                <h2 class="section-title">Visit Us</h2>
+                <div class="visit-grid">
+                    <div>
+                        <h3>Find Us</h3>
+                        <p>Jason Restaurant</p>
+                        <p>Mountain View, CA</p>
+                        <p>Dine-in, pickup and catering.</p>
+                    </div>
+                    <div>
+                        <h3>Hours</h3>
+                        <table class="hours">
+                            <tr><td>Mon &ndash; Thu</td><td>11am &ndash; 9pm</td></tr>
+                            <tr><td>Fri &ndash; Sat</td><td>11am &ndash; 10pm</td></tr>
+                            <tr><td>Sunday</td><td>10am &ndash; 8pm</td></tr>
+                        </table>
+                    </div>
+                    <div id="contact">
+                        <h3>Contact Us</h3>
+                        <p>Phone: +1 (650) 880-5876</p>
+                        <p>Email: <a href="mailto:jttnguyenprodtest@gmail.com">jttnguyenprodtest@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Jason Restaurant &middot; Family-owned Vietnamese pho &amp; noodle house in Mountain View, CA.</p>
+        <p>Made with love, star anise and a lot of patience.</p>
     </footer>
 
 </body>
